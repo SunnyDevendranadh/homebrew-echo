@@ -9,14 +9,14 @@
 #
 # Binary-first for Apple Silicon: a prebuilt release asset, no toolchain
 # required. Other platforms are pointed at a source build with a clear
-# message. Replace 776f1875d525e16a9bf66a0060cbc9d8646dabc726b1ac8d69525518786ca44b at release time with the real
+# message. Replace PLACEHOLDER_SHA256_ARM64 at release time with the real
 # sha256 of the arm64 asset.
 class Eko < Formula
   desc "Rust-native AI coding agent — BYOK, always-on kernel sandbox, one static binary"
   homepage "https://github.com/SunnyDevendranadh/Echo"
-  url "https://github.com/SunnyDevendranadh/Echo/releases/download/v1.3.0/eko-v1.3.0-aarch64-apple-darwin"
-  version "1.3.0"
-  sha256 "776f1875d525e16a9bf66a0060cbc9d8646dabc726b1ac8d69525518786ca44b"
+  url "https://github.com/SunnyDevendranadh/Echo/releases/download/v1.4.0/eko-v1.4.0-aarch64-apple-darwin"
+  version "1.4.0"
+  sha256 "03854897757ab41b068a88c42eb54b2cf2d73881269c15d9b4c73f768fb1a057"
   license "MIT"
 
   def install
@@ -32,7 +32,7 @@ class Eko < Formula
       MSG
     end
 
-    bin.install "eko-v1.3.0-aarch64-apple-darwin" => "eko"
+    bin.install "eko-v1.4.0-aarch64-apple-darwin" => "eko"
   end
 
   test do
