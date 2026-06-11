@@ -14,9 +14,9 @@
 class Eko < Formula
   desc "Rust-native AI coding agent — BYOK, always-on kernel sandbox, one static binary"
   homepage "https://github.com/SunnyDevendranadh/Echo"
-  url "https://github.com/SunnyDevendranadh/Echo/releases/download/v1.4.0/eko-v1.4.0-aarch64-apple-darwin"
-  version "1.4.0"
-  sha256 "03854897757ab41b068a88c42eb54b2cf2d73881269c15d9b4c73f768fb1a057"
+  url "https://github.com/SunnyDevendranadh/Echo/releases/download/v1.4.1/eko-v1.4.1-aarch64-apple-darwin"
+  version "1.4.1"
+  sha256 "d7143f67aeee52c71ff54bcc2670fa76354bac4bbc393af8140b1100acb01131"
   license "MIT"
 
   def install
@@ -32,7 +32,7 @@ class Eko < Formula
       MSG
     end
 
-    bin.install "eko-v1.4.0-aarch64-apple-darwin" => "eko"
+    bin.install "eko-v1.4.1-aarch64-apple-darwin" => "eko"
   end
 
   test do
