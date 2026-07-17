@@ -15,9 +15,26 @@ class Eko < Formula
   desc "Rust-native AI coding agent — BYOK, always-on kernel sandbox, one static binary"
   homepage "https://github.com/SunnyDevendranadh/Echo"
   url "https://github.com/SunnyDevendranadh/Echo/releases/download/v1.8.1/eko-v1.8.1-aarch64-apple-darwin"
-  version "1.8.1"
-  sha256 "18a6dd5200e28b83f03754d8ec463b046f1ec155083edad2815cae742686dded"
-  license "MIT"
+  version "1.9.0"
+  sha256 "cd79813ab85046cfac0e6bfb39d8822eb326ae8d503cf98fb44b8cb44ef17422"
+  # The binary embeds Apache-2.0 grok-build adaptations (see THIRD-PARTY-NOTICES).
+  license all_of: ["MIT", "Apache-2.0"]
+
+  # Apache-2.0 §4(a)/(d): the license copy + attribution notices must travel
+  # with every binary distribution. Both MUST be uploaded as release assets
+  # starting with the FIRST release containing the M19 grok-port code
+  # (packaging/README.md "Release-time steps"); replace the PLACEHOLDER shas
+  # at release time alongside PLACEHOLDER_SHA256_ARM64. URLs track `version`
+  # so the release bump can't strand them on an older tag.
+  resource "license" do
+    url "https://github.com/SunnyDevendranadh/Echo/releases/download/v#{version}/LICENSE"
+    sha256 "031650d3b697669201a00b713ea9697ac39ffca0b69a8e8902ebce0a48c613ad"
+  end
+
+  resource "third-party-notices" do
+    url "https://github.com/SunnyDevendranadh/Echo/releases/download/v#{version}/THIRD-PARTY-NOTICES"
+    sha256 "e06f4a877108a593ed4e22c85e5f32724ddbb4bb2fe8ac01954c2c4ee7602b3a"
+  end
 
   def install
     if OS.linux? || Hardware::CPU.intel?
@@ -33,6 +50,8 @@ class Eko < Formula
     end
 
     bin.install "eko-v1.8.1-aarch64-apple-darwin" => "eko"
+    resource("license").stage { prefix.install "LICENSE" }
+    resource("third-party-notices").stage { doc.install "THIRD-PARTY-NOTICES" }
   end
 
   test do
