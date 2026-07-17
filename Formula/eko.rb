@@ -14,9 +14,9 @@
 class Eko < Formula
   desc "Rust-native AI coding agent — BYOK, always-on kernel sandbox, one static binary"
   homepage "https://github.com/SunnyDevendranadh/Echo"
-  url "https://github.com/SunnyDevendranadh/Echo/releases/download/v1.8.1/eko-v1.8.1-aarch64-apple-darwin"
-  version "1.9.0"
-  sha256 "cd79813ab85046cfac0e6bfb39d8822eb326ae8d503cf98fb44b8cb44ef17422"
+  url "https://github.com/SunnyDevendranadh/Echo/releases/download/v1.10.0/eko-v1.10.0-aarch64-apple-darwin"
+  version "1.10.0"
+  sha256 "8e81b54f4e4a4e0983f5850a47ae850d4288dc3dec0d532989dfad8acbda59fd"
   # The binary embeds Apache-2.0 grok-build adaptations (see THIRD-PARTY-NOTICES).
   license all_of: ["MIT", "Apache-2.0"]
 
@@ -33,7 +33,7 @@ class Eko < Formula
 
   resource "third-party-notices" do
     url "https://github.com/SunnyDevendranadh/Echo/releases/download/v#{version}/THIRD-PARTY-NOTICES"
-    sha256 "e06f4a877108a593ed4e22c85e5f32724ddbb4bb2fe8ac01954c2c4ee7602b3a"
+    sha256 "b6ea149aa09fd0c0a39ee98aaf53e066cf5010fba7a0b88f09c8fe2486a27d77"
   end
 
   def install
@@ -49,7 +49,7 @@ class Eko < Formula
       MSG
     end
 
-    bin.install "eko-v1.8.1-aarch64-apple-darwin" => "eko"
+    bin.install "eko-v1.10.0-aarch64-apple-darwin" => "eko"
     resource("license").stage { prefix.install "LICENSE" }
     resource("third-party-notices").stage { doc.install "THIRD-PARTY-NOTICES" }
   end
